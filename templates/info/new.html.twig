@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Info{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('assets/css/info.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="text-center">Créer une info</h1>
+    <div class="row d-flex justify-content-center">
+
+				<div class="col-md-6 col-sm-6 col-lg-4 col-xl-4 m-2 p-3 cadre-info">
+            
+
+    {{ include('info/_form.html.twig') }}
+    </div>
+
+</div>
+    <a class="btn btn-info" href="{{ path('app_info_index') }}">Retour</a>
+</div>
+{% endblock %}

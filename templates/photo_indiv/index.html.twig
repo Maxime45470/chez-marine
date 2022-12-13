@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Photos non public{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('assets/css/photoGroupe.css') }}">
+{% endblock %}
+
+{% block body %}
+{% if app.user %}
+		<div class="container text-center justify-content-around">
+				<a class="retour nav-link btn btn-light m-1 p-1" href="{{ path('app_categories_index') }}">Retour catégories</a>
+			<div class="row justify-content-around">
+
+				<h1>Photos de mon enfant</h1>
+
+				{% for photo in photos %}
+					<div class=" cadre">
+						<img src="{{ asset('uploads/groupe/' ~ photo.photo) }}" class="card-img-top" alt="photo">
+						<div class="card-body">
+							<h4>{{ photo.titre | capitalize }}</h4>
+							<p class="card-text">{{ photo.description | capitalize }}</p>
+							<p>Photo prise le
+								{{ photo.createdat | date('d/m/Y') }}
+							</p>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	{% else %}
+		<div class="container text-center justify-content-around">
+			<div class="row">
+				<div class="col-12">
+					<h1>Vous devez être connecté pour accéder à cette page
+						<a href="{{ path('app_login') }}">Se connecter</a>
+					</h1>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+{% endblock %}

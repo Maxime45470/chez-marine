@@ -1,0 +1,39 @@
+@media screen and (min-width: 768px) {
+    .photo {
+        display: flex;
+        margin: 0 auto;
+    }
+}
+
+.h3 {
+    justify-content: center !important;
+}
+
+.ajout {
+    margin: 0 auto;
+    width: 200px;
+    text-align: center;
+    margin-bottom: 30px;
+} 
+
+a.btn-warning {
+    margin: 0 auto;
+    width: 60%;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    background-color: rgba(255, 217, 0, 0.419);
+}
+
+
+
+.cadre {
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 50px;
+    margin-top: 15px;
+    background-color: rgba(255, 255, 255, 0.249);
+    box-shadow: 0 0 10px #000;
+    width: 300px !important;
+}

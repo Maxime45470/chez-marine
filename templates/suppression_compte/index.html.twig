@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SuppressionCompteController!{% endblock %}
+
+{% block body %}
+
+<form method="post" action="{{ path('suppression_compte') }}">
+    <input type="text" name="nom" placeholder="Nom">
+    <input type="text" name="prenom" placeholder="Prenom">
+    <input type="text" name="email" placeholder="Email">
+    <input type="text" name="raison" placeholder="Raison">
+    <button disabled="disabled" type="submit">Supprimer</button>
+</form>
+
+    if (isset($_POST['message'])) {
+        $retour = mail('destinataire@free.fr', 'Envoi depuis la page Contact', $_POST['message'], 'From: webmaster@monsite.fr' . "\r\n" . 'Reply-to: ' . $_POST['email']);
+        if($retour)
+            echo '<p>Votre message a bien été envoyé.</p>';
+    }
+    
+
+{% endblock %}

@@ -1,0 +1,31 @@
+.deco {
+    color: brown;
+}
+h2 {
+    font-family: 'Ms Madi', cursive;
+    font-size: 25px !important;
+}
+/* background avec alfa */
+.navbar {
+    background-color: rgba(150, 148, 148, 0.628) !important; 
+}
+@media screen and (max-width: 768px) {
+    .navbar {
+        text-align: center;
+    }
+    .navbar-brand {
+        margin: 0 auto;
+    }
+    .navbar-nav {
+        width: 80% !important;
+        margin: 0 auto !important;
+    }
+} 
+/* Fin navbar */
+
+/* decalage pour echapper la nav-bar é*/
+.container {
+    margin-top: 80px;
+    padding: 20px;
+}
+/* Fin decalage pour echapper la nav-bar */

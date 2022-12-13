@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %} <link rel="stylesheet" href="{{ asset('assets/css/accueil.css') }}"> {% endblock %}
+
+{% block title %}Accueil{% endblock %}
+{% block body %}
+	{% if app.user %}
+		<div class="container text-center justify-content-around">
+			<div class="row">
+				<div class="col-12">		
+					<h1 class="bienvenue">Bienvenue {{ app.user.nom | capitalize}} {{ app.user.prenom | capitalize }}</h1>
+					{% for info in info %}
+						<p class="red" id="clignotement" style="visibility:visible;">{{ info.annonces }}</p>
+					{% endfor %}
+				</div>
+				{% for evenement in evenement %}
+					<div class="col-sm-12 col-md-6 col-lg-4">
+						<div class="cadre">
+							<h5 class="card-title text-center">{{ evenement.nom | capitalize }}
+								le :
+								{{ evenement.date | date("d/m/Y") }}</h5>
+							<p class="">{{ evenement.description | capitalize }}</p>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		</div>
+	{% else %}
+	<div class="container text-center justify-content-around">
+		<h1>Vous devez être connecté pour accéder à cette page
+			<a href="{{ path('app_login') }}">Se connecter</a>
+		</h1>
+</div>
+	{% endif %}
+{% endblock %}

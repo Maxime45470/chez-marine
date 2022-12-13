@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categories
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('assets/css/categories.css') }}">
+{% endblock %}
+
+{% block body %}
+	{% if app.user %}
+
+
+		<div class="container text-center justify-content-around">
+			<div class="row justify-content-around">
+
+				<h1>Catégories</h1>
+
+				{% for category in categories %}
+					<div class="cadre" style="height: 20rem;">
+						<a class="btn" href="{{ path('app_affichage_photo_groupe', {'id': category.id}) }}">
+						<p>{{ category.nom }}</p>
+							<img src="{{ asset('uploads/categories/' ~ category.image) }}" alt="" width="250px" height="250px">
+						{% if is_granted('ROLE_ADMIN') %}
+				<a class="btn btn-warning" href="{{ path('app_categories_edit', {'id': category.id}) }}">Modifier</a>
+				{% endif %}
+						</a>
+					</div>
+				{% endfor %}
+			</div>
+
+
+		<div class="ajout">
+			{% if is_granted('ROLE_ADMIN') %}
+				<a class="nav-link btn btn-success mt-5" href="{{ path('app_categories_new') }}">Ajouter une catégorie</a>
+			{% endif %}
+			</div>
+
+		</div>
+		
+	
+
+
+{% else %}
+
+	<div class="container text-center justify-content-around">
+		<div class="row">
+			<div class="col-12">
+				<h1>Vous devez être administrateur pour accéder à cette page
+					<a href="{{ path('app_login') }}">Se connecter</a>
+				</h1>
+			</div>
+		</div>
+	</div>
+{% endif %}
+{% endblock %}

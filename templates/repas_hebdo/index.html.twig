@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('assets/css/ajoutRepas.css') }}">
+{% endblock %}
+
+{% block title %}Repas Hebdomadaire
+{% endblock %}
+
+
+{% block body %}
+	{% if is_granted('ROLE_ADMIN') %}
+		<div class="container">
+			<div class="d-flex justify-content-center">
+				<h1>Ajout repas</h1>
+			</div>
+			{{form_start(repasHebdo)}}
+			<div class="mb-5 d-flex justify-content-center">Semaine du : 
+				{{ form_row(repasHebdo.debut_sem) }}
+				au
+				{{ form_row(repasHebdo.fin_sem) }}
+			</div>
+
+			<div class="row justify-content-between sur-cadre">
+				<div class="col-md-2 col-sm-2 col-lg-2 col-xl-2 cadre">Lundi :
+
+					<p>{{ form_row(repasHebdo.lundi) }}</p>
+					<p>{{ form_row(repasHebdo.lentree) }}</p>
+					<p>{{ form_row(repasHebdo.lplat) }}</p>
+					<p>{{ form_row(repasHebdo.ldessert) }}</p>
+				</div>
+
+				<div class="col-md-4 col-sm-4 col-lg-2 col-xl-2  cadre">Mardi :
+					<p>
+						{{ form_row(repasHebdo.mardi) }}</p>
+					<p>{{ form_row(repasHebdo.mentree) }}</p>
+					<p>{{ form_row(repasHebdo.mplat) }}</p>
+					<p>{{ form_row(repasHebdo.mdessert) }}</p>
+				</div>
+
+				<div class="col-md-4 col-sm-4 col-lg-2 col-xl-2  cadre">Mercredi :
+					<p>
+						{{ form_row(repasHebdo.mercredi) }}</p>
+					<p>{{ form_row(repasHebdo.merentree) }}
+					</p>
+					<p>{{ form_row(repasHebdo.merplat) }}
+					</p>
+					<p>{{ form_row(repasHebdo.merdessert) }}</p>
+				</div>
+
+				<div class="col-md-4 col-sm-4 col-lg-2 col-xl-2  cadre">Jeudi :
+					<p>
+						{{ form_row(repasHebdo.jeudi) }}</p>
+					<p>{{ form_row(repasHebdo.jentree) }}</p>
+					<p>{{ form_row(repasHebdo.jplat) }}</p>
+					<p>{{ form_row(repasHebdo.jdessert) }}</p>
+				</div>
+
+				<div class="col-md-4 col-sm-4 col-lg-2 col-xl-2  cadre">Vendredi :
+					<p>
+						{{ form_row(repasHebdo.vendredi) }}</p>
+					<p>
+						{{ form_row(repasHebdo.ventree) }}</p>
+					<p>{{ form_row(repasHebdo.vplat) }}</p>
+					<p>{{ form_row(repasHebdo.vdessert) }}</p>
+				</div>
+
+				<div class="col-12 d-flex justify-content-center">
+					<button disabled="disabled" type="submit" class="btn bouton">enregistrer</button>
+				</div>
+			</div>
+
+			{{ form_end(repasHebdo) }}
+		</div>
+	</div>
+{% else %}
+	<div class="container text-center justify-content-around">
+		<div class="row">
+			<div class="col-12">
+				<h1>Vous devez être connecté comme administrateur pour accéder à cette page</h1>
+				<a href="{{ path('app_login') }}">Se connecter</a>
+			</h1>
+		</div>
+	</div>
+</div>{% endif %}{% endblock %}

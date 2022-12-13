@@ -1,0 +1,111 @@
+.semaine {
+    margin: 0px;
+    margin-bottom: 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 0, 0, 0.605);
+    border-radius: 10px;
+    padding: 10px;
+    
+}
+
+.jour {
+    border-bottom: 1px dashed red;
+}
+
+.entree, .plat, .dessert {
+    border-radius: 5px;
+    border: solid #000 1px;
+}
+
+.entree {
+    background-color: #1aff008b;
+}
+
+.plat {
+    background-color: #ff00008b;
+}
+
+.dessert {
+    background-color: #f6ff008b;
+}
+
+.cadre  {
+    width: 218px;
+    height: 160px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    margin: 2px auto;
+    padding: 10px;
+    height: 360px;
+    background-image: url(/assets/img/tableau.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: whitesmoke;
+}
+
+p {
+    margin-bottom: 0px;
+}
+
+p.jour {
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+.sur-cadre {
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px #000;
+  
+}
+
+@media screen and (max-width: 600px) {
+    .cadre {
+        width: 90%;
+        height: 500px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+
+    p {
+        margin-bottom: 10px;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    p.jour {
+        margin-top: 90px !important;
+        margin-bottom: 50px !important;
+        margin: 0 auto;
+    }
+
+    .jour {
+        margin: 10px;
+    }
+
+    .entree {
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
+        width: 80%;
+        margin: 0 auto;
+    }
+    
+    .plat {
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
+        width: 80%;
+        margin: 0 auto;
+    }
+    
+    .dessert {
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+    

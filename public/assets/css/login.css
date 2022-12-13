@@ -1,0 +1,51 @@
+.connexion {
+    width: 80%;
+    margin: 0 auto;
+}
+
+label {
+    padding: 10px;
+}
+
+h1 {
+    font-size: 30px!important;
+    margin-bottom: 20px !important;
+    font-family: 'Press Start 2P' , cursive;
+}
+
+.logo {
+    width: 80px;
+    position: relative;
+    top: 12px;
+    left: 18px;
+}
+
+.ballon {
+    width: 100px;
+    position: relative;
+    margin-right: 50px;
+    top: 10px;
+}
+
+.bouton {
+    margin-top: 60px;
+    margin-bottom: 20px;
+    border: thick double #32a1ce;
+}
+
+/* Query:  */
+@media screen and (min-width: 768px) {
+    .logo {
+        width: 100px;
+        position: relative;
+        
+    }
+    
+    .ballon {
+        width: 100px;
+        position: relative;
+        margin-right: 50px;
+        top: 10px;
+    }
+}
+    

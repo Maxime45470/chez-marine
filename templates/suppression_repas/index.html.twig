@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Suppression Repas
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('assets/css/menu.css') }}">
+{% endblock %}
+
+{% block body %}
+{% if is_granted('ROLE_ADMIN')%}
+	<div class="container text-center justify-content-around">
+			<h1 class="mb-5">Suppression repas</h1>
+
+		<div class="row justify-content-around">
+			{% for repasHebdo in repasHebdo %}
+
+				<div class="sur-cadre m-5 text-center" style="width: 18rem;">
+
+					
+
+						<h5 class="card-title">{{ repasHebdo.debutSem | date('d/m/Y') }}
+							au
+							{{ repasHebdo.finSem | date('d/m/Y') }}</h5>
+
+
+						<form method="post" action="{{ path('app_repas_hebdo_delete', {'id': repasHebdo.id}) }}" onsubmit="return confirm('ATTENTION ! Vous êtes sur le point de supprimer un repas de la semaine. Êtes-vous sûr de vouloir continuer ?');">
+							<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ repasHebdo.id) }}">
+							<button disabled="disabled" class="btn btn-danger m-2">Supprimer</button>
+						</form>
+
+					
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+{% else %}
+	<div class="container text-center justify-content-around">
+		<div class="row">
+			<div class="col-12">
+				<h1>Vous devez être connecté comme administrateur pour accéder à cette page</h1>
+				<a href="{{ path('app_login') }}">Se connecter</a>
+			</h1>
+		</div>
+	</div>
+</div>{% endif %}{% endblock %}

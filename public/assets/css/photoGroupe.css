@@ -1,0 +1,31 @@
+.cadre {
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.532);
+    box-shadow: 0 0 10px #000;
+    width: 300px !important;
+}
+
+h4, p.card-text, p.prise , h1 {
+    margin-bottom: 0;
+}
+
+.retour {
+    width: 250px;
+    justify-content: start;
+}  
+
+
+
+/* section pour l'ajout de photo */
+.cadre-ajout {
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.532);
+    box-shadow: 0 0 10px #000;
+    width: 350px !important;
+}

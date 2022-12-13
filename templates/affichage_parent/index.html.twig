@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Affichage Parent
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('assets/css/afficheParent.css') }}">
+{% endblock %}
+
+{% block body %}
+	{% if is_granted('ROLE_ADMIN') %}
+	
+	
+		<div class="container text-center justify-content-between">
+			<div class="row justify-content-around">
+				
+					<h1 class="text-center">Liste des parents</h1>
+				{% for user in users %}
+				
+					<div class="col-md-12 col-sm-6 col-lg-4 col-xl-4 cadre">
+						<h5>
+							{{ user.nom | capitalize }} {{ user.prenom | capitalize }}
+						</h5>
+						
+						<p>
+							{{ user.email }}
+						</p>
+						<p>
+							{{ user.telephone }}
+						</p>
+						<p>
+							{{ user.adresse }}
+						</p>
+						<p>
+							{{ user.zipcode }} {{ user.ville }}
+						</p>
+						
+						<p>
+							{{ user.enfant1 | capitalize }}
+						</p>
+						<p>
+							{{ user.enfant2 | capitalize }}
+						</p>
+						<p>
+							{{ user.enfant3 | capitalize }}
+						</p>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	{% else %}
+		<div class="container text-center justify-content-around">
+			<div class="row">
+				<div class="col-12">
+					<h1>Vous devez être connecté pour accéder à cette page
+						<a href="{{ path('app_login') }}">Se connecter</a>
+					</h1>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+
+{% endblock %}

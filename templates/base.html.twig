@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="{{ asset('assets/css/general.css') }}">
+
+		<title>	{% block title %} Bienvenue {% endblock %}	</title>
+
+		{# lien vers le fichier link #}
+		{% include "_partials/_link.html.twig" %}
+
+		{% block stylesheets %}{% endblock %}
+
+		{% block javascripts %}
+		  	{# lien pour bootstrap et JS #}
+			<script type="text/javascript" src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+			<script type="text/javascript" src="{{ asset('assets/js/bootstrap.min.js.map') }}"></script>
+			<script type="text/javascript" src="{{ asset('assets/js/script.js') }}"></script>
+		{% endblock %}
+	</head>
+	{# onload est utilisé pour le fond d'ecran aléatoire #}
+	<body onload="randomBackground()">
+		{% if is_granted('ROLE_ADMIN') %}
+			{# Navbar pour les admins #}
+			{% include "_partials/_navbarAdmin.html.twig" %}
+		{% else %}
+			{# Navbar pour les utilisateurs #}
+			{% include "_partials/_navbar.html.twig" %}
+		{% endif %}
+
+		{# le block sert a afficher le contenu de la page #}
+		{% block body %}{% endblock %}
+		
+		{# appel du footer dans tout le site #}
+		{% include "_partials/_footer.html.twig" %}
+	</body>
+</html>

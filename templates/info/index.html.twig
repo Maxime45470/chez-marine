@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gestion des Infos
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('assets/css/info.css') }}">
+{% endblock %}
+
+{% block body %}
+	{% if is_granted('ROLE_ADMIN') %}
+
+		<div class="container">
+			<div class="row d-flex justify-content-center">
+				<h1 class="text-center">Gestion des Infos</h1>
+
+
+				{% for info in infos %}
+
+					<div class="col-md-4 col-sm-4 col-lg-4 col-xl-4 cadre-info">
+						<p>Parent :
+							{{ info.info.nom }}</p>
+
+						<p>Info :
+							{{ info.annonces }}</p>
+				
+						<td>
+							<a class="btn btn-outline-success" href="{{ path('app_info_edit', {'id': info.id}) }}">Modifier</a>
+						</td>
+					</div>
+
+				{% else %}
+					<tr>
+						<td colspan="3">Pas d'infos</td>
+					</tr>
+				{% endfor %}
+			</div>
+		</div>
+
+		<a class="btn info btn-outline-primary" href="{{ path('app_info_new') }}">Ajouter info</a>
+	{% else %}
+		<div class="container text-center justify-content-around">
+			<div class="row">
+				<div class="col-12">
+					<h1>Vous devez être administrateur pour accéder à cette page
+						<a href="{{ path('app_login') }}">Se connecter</a>
+					</h1>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+
+{% endblock %}

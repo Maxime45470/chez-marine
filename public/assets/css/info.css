@@ -1,0 +1,44 @@
+/* css pour info */
+table, td, th {
+    border: 1px solid black;   
+}
+
+.info {
+    width: 150px;
+    margin: 0 auto;
+}
+
+.cadre-info {
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px #000;
+    width: 300px;
+}
+
+
+/* css pour evenement */
+#evenement1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    
+}
+
+
+
+.cadre {
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px #000;
+    
+}
+
+

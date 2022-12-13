@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('assets/css/inscription.css') }}">
+{% endblock %}
+
+{% block body %}
+{% if is_granted('ROLE_ADMIN') %}
+	<div class="container d-flex justify-content-center">
+		<div class="row">
+			<h1>Enregistrer un nouveau parent</h1>
+		</div>
+		</div>
+		<div class="container-fluid d-flex justify-content-center">
+
+		<div class="inscription">
+			{{ form_start(registrationForm) }}
+			<div class="row">
+				<div class="col-md-6 col-sm-6">
+					{{ form_row(registrationForm.nom) }}
+				</div>
+				<div class="col-md-6 col-sm-6">
+					{{ form_row(registrationForm.prenom) }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-sm-6">
+					{{ form_row(registrationForm.adresse) }}
+				</div>
+				<div class="col-md-6 col-sm-6">
+					{{ form_row(registrationForm.zipcode) }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-sm-6">
+					{{ form_row(registrationForm.ville) }}
+				</div>
+				<div class="col-md-6 col-sm-6">
+					{{ form_row(registrationForm.telephone) }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-sm-6">
+					{{ form_row(registrationForm.email) }}
+				</div>
+				<div class="col-md-6 col-sm-6">
+					{{ form_row(registrationForm.enfant_1) }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-sm-6">
+					{{ form_row(registrationForm.enfant_2) }}
+				</div>
+				<div class="col-md-6 col-sm-6">
+					{{ form_row(registrationForm.enfant_3) }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-sm-6">
+					{{ form_row(registrationForm.plainPassword) }}
+				</div>
+				<div class="col-md-6 col-sm-6">
+					{{ form_row(registrationForm.rgpd) }}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					{{ form_row(registrationForm.valid_photo_groupe) }}
+				</div>
+			</div>
+
+			<button disabled="disabled" type="submit" class="btn bouton">Enregistrer</button>
+
+			{{ form_end(registrationForm) }}
+		</div>
+	</div>
+	
+
+
+{% else %}
+	<div class="container text-center justify-content-around">
+		<div class="row">
+			<div class="col-12">
+				<h1>Vous devez être connecté comme administrateur pour accéder à cette page</h1>
+				<a href="{{ path('app_login') }}">Se connecter</a>
+			</h1>
+		</div>
+	</div>
+</div>{% endif %}{% endblock %}

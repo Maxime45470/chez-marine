@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Suppression Parent
+{% endblock %}
+
+{% block stylesheets %}
+	{# utilisation de photoGroupe.css pour utiliser la class=cadre  #}
+	<link rel="stylesheet" href="{{ asset('assets/css/photoGroupe.css') }}">
+{% endblock %}
+
+{% block body %}
+{% if is_granted('ROLE_ADMIN') %}
+	<div class="container d-flex text-center justify-content-center">
+	<div class="row justify-content-around">
+		<h1 class="text-center">Suppression parents</h1>
+
+		{% for user in users %}
+			<div class=" cadre">
+
+				<h5>{{ user.nom | capitalize }}</h5>
+				<h5>{{ user.prenom | capitalize }}</h5>
+				<p>{{ user.email }}</p>
+				<p>{{ user.roles | join(', ') }}</p>
+				<form method="post" action="{{ path('app_users_delete', {'id': user.id}) }}" onsubmit="return confirm('ATTENTION : Etes-vous sûr de vouloir supprimer cet utilisateur ?');">
+					<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
+					<button disabled="disabled" class="btn btn-outline-danger">Supprimer</button>
+				</form>
+			</div>
+		{% endfor %}
+	</div>
+	</div>
+
+{% else %}
+	<div class="container text-center justify-content-around">
+		<div class="row">
+			<div class="col-12">
+				<h1>Vous devez être connecté comme administrateur pour accéder à cette page</h1>
+				<a href="{{ path('app_login') }}">Se connecter</a>
+			</h1>
+		</div>
+	</div>
+</div>
+{% endif %}
+{% endblock %}

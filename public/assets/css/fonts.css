@@ -1,0 +1,29 @@
+/* Feuille de style pour les polices */
+
+@font-face {
+    font-family: "Press Start 2P";
+    src: url("../fonts/PressStart2P-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Dela Gothic One";
+    src: url("../fonts/DelaGothicOne-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Indie Flower";
+    src: url("../fonts/IndieFlower-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Ms Madi";
+    src: url("../fonts/MsMadi-Regular.ttf") format("truetype");
+}
+
+
+h1 {
+    margin-bottom: 30px;
+    font-family: 'Ms Madi', cursive;
+    font-weight: bold;
+    font-size: 60px;
+}

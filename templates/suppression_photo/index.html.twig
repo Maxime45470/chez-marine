@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Suppression Photo
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('assets/css/photoGroupe.css') }}">
+{% endblock %}
+
+{% block body %}
+{% if is_granted('ROLE_ADMIN')%}
+<div class="container text-center justify-content-around">
+			<div class="row justify-content-around">
+
+				<h1 class="m-0">Suppression Photos</h1>
+
+		{% for photoGroupe in photoGroupe %}
+			
+					<div class="cadre p-0" style="width: 18rem;">
+						<img src="{{ asset('uploads/groupe/' ~ photoGroupe.photo) }}" class="card-img-top" alt="...">
+						<div class="">
+							<h4>{{ photoGroupe.titre | capitalize }}</h4>
+							<p class="">{{ photoGroupe.description | capitalize }}</p>
+							<p>Photo prise le
+								{{ photoGroupe.createdat | date('d/m/Y') }}
+							</p>
+						</div>
+						<form method="post" action="{{ path('app_photo_delete', {'id': photoGroupe.id}) }}" onsubmit="return confirm('ATTENTION ! Vous êtes sur le point de supprimer une photo. Êtes-vous sûr de vouloir continuer ?');">
+							<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ photoGroupe.id) }}">
+							<button disabled="disabled" class="btn btn-danger mb-2">Supprimer</button>
+						</form>
+					</div>
+		{% endfor %}
+				</div>
+			</div>
+		
+
+	</div>
+</div>
+	{% else %}
+	<div class="container text-center justify-content-around">
+		<div class="row">
+			<div class="col-12">
+				<h1>Vous devez être connecté comme administrateur pour accéder à cette page</h1>
+				<a href="{{ path('app_login') }}">Se connecter</a>
+			</h1>
+		</div>
+	</div>
+</div>
+{% endif %}
+{% endblock %}
