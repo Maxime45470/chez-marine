@@ -5,6 +5,13 @@ h2 {
     font-family: 'Ms Madi', cursive;
     font-size: 25px !important;
 }
+
+.marine {
+    font-family: 'Ms Madi', cursive;
+    font-size: 35px !important;
+    padding-bottom: 0% ;
+    margin-bottom: 0% ;
+}
 /* background avec alfa */
 .navbar {
     background-color: rgba(150, 148, 148, 0.628) !important; 
@@ -24,8 +31,5 @@ h2 {
 /* Fin navbar */
 
 /* decalage pour echapper la nav-bar é*/
-.container {
-    margin-top: 80px;
-    padding: 20px;
-}
+
 /* Fin decalage pour echapper la nav-bar */

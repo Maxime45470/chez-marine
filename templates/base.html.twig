@@ -21,14 +21,10 @@
 	</head>
 	{# onload est utilisé pour le fond d'ecran aléatoire #}
 	<body onload="randomBackground()">
-		{% if is_granted('ROLE_ADMIN') %}
-			{# Navbar pour les admins #}
-			{% include "_partials/_navbarAdmin.html.twig" %}
-		{% else %}
-			{# Navbar pour les utilisateurs #}
+	{% if app.user %}
 			{% include "_partials/_navbar.html.twig" %}
-		{% endif %}
-
+		
+{% endif %}
 		{# le block sert a afficher le contenu de la page #}
 		{% block body %}{% endblock %}
 		

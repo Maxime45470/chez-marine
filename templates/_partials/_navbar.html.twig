@@ -2,34 +2,56 @@
 	<link rel="stylesheet" href="{{ asset('assets/css/navbar.css') }}">
 {% endblock %}
 
-<div class="test">
-	<nav class="navbar navbar-expand-lg bg-light">
-		<div class="container-fluid">
-				<h2 class="navbar-brand">La semaine de mon enfant</h2>
-			{% if app.user %}
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarNav">
-					<ul class="navbar-nav ms-auto">
-						<li class="nav-item">						
-								<a class="nav-link btn accueil m-1 p-1" href="{{ path('app_accueil') }}">Accueil</a>
+<nav class="navbar bg-light fixed-top">
+	<div class="container">
+		<h1 class="navbar-brand marine">Chez Marine</h1>
+		<button class="navbar-toggler" id="modal-nav" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+			<span class="navbar-toggler-icon"></span>Navigations
+		</button>
+		<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+			<div class="offcanvas-header">
+				<h4 class="offcanvas-title" id="offcanvasNavbarLabel">Chez Marine</h4>
+				<button type="button" class="btn-close" id="close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+			</div>
+			<div class="offcanvas-body">
+				{% if is_granted('ROLE_ADMIN') %}
+					<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+							<li class="nav-item">
+								<a class="nav-link btn m-1 p-1 accueil" href="{{ path('app_accueil') }}">Accueil</a>
 						</li>
 						<li class="nav-item">
-								<a class="nav-link btn btn-primary m-1 p-1" href="{{ path('app_menu_hebdo') }}">Repas de la semaine</a>
+								<a class="nav-link btn btn-info m-1 p-1" href="{{ path('app_categories_index') }}">Photos</a>
+								<a class="nav-link btn btn-success m-1 p-1" href="{{ path('app_photo_groupe') }}">Ajouter photos de groupe</a>
+								<a class="nav-link btn btn-danger m-1 p-1" href="{{ path('app_suppression_photo') }}">Supprimer photos</a>
 						</li>
 						<li class="nav-item">
-								<a class="nav-link btn btn-primary m-1 p-1" href="{{ path('app_categories_index') }}">Photos</a>
+								<a class="nav-link btn btn-info m-1 p-1" href="{{ path('app_affichage_parent') }}">Afficher parent</a>
+								<a class="nav-link btn btn-success m-1 p-1" href="{{ path('app_register') }}">Ajouter parent</a>
+								<a class="nav-link btn btn-danger m-1 p-1" href="{{ path('app_suppression_parent') }}">Supprimer un parent</a>
+						</li>
+                        <li class="nav-item">
+								<a class="nav-link btn btn-info m-1 p-1" href="{{ path('app_evenement_index') }}">Ajouter/modifier les evenements</a>
+								<a class="nav-link btn btn-success m-1 p-1" href="{{ path('app_info_index') }}">Information aux parents</a>
+								<a class="nav-link btn btn-outline-danger m-1 p-1" href="{{ path('app_logout') }}">Déconnexion</a>
+						</li>
+					</ul>
+				{% else %}
+					<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+						<li class="nav-item">
+							<a class="nav-link btn accueil m-1 p-1" href="{{ path('app_accueil') }}">Accueil</a>
 						</li>
 						<li class="nav-item">
-								<a class="nav-link btn btn-info m-1 p-1" href="{{ path('app_mon_compte') }}">Mon compte</a>
+							<a class="nav-link btn btn-primary m-1 p-1" href="{{ path('app_categories_index') }}">Photos</a>
 						</li>
-						<li class="nav-item">							
-								<a class="nav-link btn btn-danger m-1 p-1" href="{{ path('app_logout') }}">Déconnexion</a>
+						<li class="nav-item">
+							<a class="nav-link btn btn-info m-1 p-1" href="{{ path('app_mon_compte') }}">Mon compte</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link btn btn-danger m-1 p-1" href="{{ path('app_logout') }}">Déconnexion</a>
 						</li>
 					</ul>
 				{% endif %}
 			</div>
 		</div>
-	</nav>
-</div>
+	</div>
+</nav>

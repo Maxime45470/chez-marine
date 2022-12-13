@@ -6,6 +6,12 @@ footer {
     padding-left: 20px;
 }
 
+.maximuss {
+    color: rgb(28, 28, 28) !important;
+    font-size: 20px;
+    text-align: center;
+}
+
 body {
     display: flex;
     flex-direction: column;
