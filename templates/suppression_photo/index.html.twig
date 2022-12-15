@@ -27,7 +27,7 @@
 						</div>
 						<form method="post" action="{{ path('app_photo_delete', {'id': photoGroupe.id}) }}" onsubmit="return confirm('ATTENTION ! Vous êtes sur le point de supprimer une photo. Êtes-vous sûr de vouloir continuer ?');">
 							<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ photoGroupe.id) }}">
-							<button disabled="disabled" class="btn btn-danger mb-2">Supprimer</button>
+							<button  class="btn btn-danger mb-2">Supprimer</button>
 						</form>
 					</div>
 		{% endfor %}

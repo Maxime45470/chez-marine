@@ -67,7 +67,7 @@
 							Cette application est conçue pour vous permettre de gérer vos données personnelles. Vous pouvez à tout moment supprimer votre compte en faisant une demande à l'adresse suivante :
 							<form method="post" action="{{ path('app_delete', {'id': app.user.id}) }}" onsubmit="return confirm('ATTENTION : Etes-vous sûr de vouloir supprimer cet utilisateur ?');">
 								<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ app.user.id) }}">
-								<button disabled="disabled" class="btn btn-outline-danger">Supprimer</button>
+								<button  class="btn btn-outline-danger">Supprimer</button>
 							</form>
 						</p>
 					</div>
