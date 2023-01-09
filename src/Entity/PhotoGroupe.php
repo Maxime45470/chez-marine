@@ -17,7 +17,7 @@ class PhotoGroupe
     #[ORM\Column(length: 255)]
     private ?string $titre = null;
 
-    #[ORM\Column(type: Types::TEXT)]
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
    
@@ -33,6 +33,7 @@ class PhotoGroupe
 
     #[ORM\ManyToOne(inversedBy: 'photoGroupes')]
     private ?Users $parent = null;
+    
     
 
     public function getId(): ?int
@@ -116,4 +117,6 @@ class PhotoGroupe
 
         return $this;
     }
+
+    
 }

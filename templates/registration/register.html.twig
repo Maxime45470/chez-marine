@@ -20,48 +20,31 @@
 			{{ form_start(registrationForm) }}
 			<div class="row">
 				<div class="col-md-6 col-sm-6">
-					{{ form_row(registrationForm.nom) }}
+					{{ form_row(registrationForm.email) }}
 				</div>
 				<div class="col-md-6 col-sm-6">
-					{{ form_row(registrationForm.prenom) }}
+					{{ form_row(registrationForm.nom) }}
 				</div>
+				
 			</div>
 			<div class="row">
 				<div class="col-md-6 col-sm-6">
 					{{ form_row(registrationForm.adresse) }}
 				</div>
 				<div class="col-md-6 col-sm-6">
-					{{ form_row(registrationForm.zipcode) }}
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6 col-sm-6">
 					{{ form_row(registrationForm.ville) }}
 				</div>
-				<div class="col-md-6 col-sm-6">
-					{{ form_row(registrationForm.telephone) }}
-				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-6 col-sm-6">
-					{{ form_row(registrationForm.email) }}
-				</div>
 				<div class="col-md-6 col-sm-6">
 					{{ form_row(registrationForm.enfant_1) }}
 				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6 col-sm-6">
-					{{ form_row(registrationForm.enfant_2) }}
-				</div>
-				<div class="col-md-6 col-sm-6">
-					{{ form_row(registrationForm.enfant_3) }}
-				</div>
-			</div>
-			<div class="row">
 				<div class="col-md-6 col-sm-6">
 					{{ form_row(registrationForm.plainPassword) }}
 				</div>
+			</div>
+			<div class="row">
+				
 				<div class="col-md-6 col-sm-6">
 					{{ form_row(registrationForm.rgpd) }}
 				</div>

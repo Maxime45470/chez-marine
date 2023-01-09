@@ -19,31 +19,17 @@
 				
 					<div class="col-md-12 col-sm-6 col-lg-4 col-xl-4 cadre">
 						<h5>
-							{{ user.nom | capitalize }} {{ user.prenom | capitalize }}
+							{{ user.adresse | capitalize }} {{ user.ville | capitalize }}
 						</h5>
 						
 						<p>
 							{{ user.email }}
 						</p>
-						<p>
-							{{ user.telephone }}
-						</p>
-						<p>
-							{{ user.adresse }}
-						</p>
-						<p>
-							{{ user.zipcode }} {{ user.ville }}
-						</p>
-						
+					
 						<p>
 							{{ user.enfant1 | capitalize }}
 						</p>
-						<p>
-							{{ user.enfant2 | capitalize }}
-						</p>
-						<p>
-							{{ user.enfant3 | capitalize }}
-						</p>
+						
 					</div>
 				{% endfor %}
 			</div>

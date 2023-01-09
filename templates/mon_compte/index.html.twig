@@ -20,31 +20,18 @@
 				<div class="p-2 m-3">
 					<h4>
 						Nom :
-						{{ app.user.nom }}
+						{{ app.user.adresse }}
 					</h4>
 					<h5>
 						Prénom :
-						{{ app.user.prenom }}
+						{{ app.user.ville }}
 					</h4>
-					<p>
-						Tél :
-						{{ app.user.telephone }}
-					</p>
+					
 					<p>
 						Email :
 						{{ app.user.email }}
 					</p>
-					<p>
-						Adresse :
-						{{ app.user.adresse }}
-					</p>
-					<p>
-						Code Postal :{{ app.user.zipcode }}
-					</p>
-					<p>
-						Ville :
-						{{ app.user.ville }}
-					</p>
+				
 
 				</div>
 				<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">RGPD</button>

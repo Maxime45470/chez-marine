@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Users;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RadioType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -18,40 +19,45 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom', TextType::class, [
+            ->add('nom', EmailType::class, [
                 'label' => ' ',
                 'attr' => [
-                    'placeholder' => 'Nom'
+                    'placeholder' => 'Confirmation Email'
                 ]
             ])
             ->add('prenom', TextType::class, [
                 'label' => ' ',
                 'attr' => [
-                    'placeholder' => 'Prénom'
+                    'placeholder' => 'Prénom',
+                    'hidden' => true
                 ]
             ])
             ->add('adresse' , TextType::class, [
                 'label' => ' ',
                 'attr' => [
-                    'placeholder' => 'Adresse'
+                    'placeholder' => 'Nom'
                 ]
             ])
             ->add('zipcode', TextType::class, [
                 'label' => ' ',
+                'required' => false,
                 'attr' => [
-                    'placeholder' => 'Code postal'
+                    'placeholder' => 'Code postal',
+                    'hidden' => true
                 ]
             ])
             ->add('ville', TextType::class, [
                 'label' => ' ',
                 'attr' => [
-                    'placeholder' => 'Ville'
+                    'placeholder' => 'Prénom'
                 ]
             ])
             ->add('telephone', TextType::class, [
                 'label' => ' ',
+                'required' => false,
                 'attr' => [
-                    'placeholder' => 'Téléphone'
+                    'placeholder' => 'Téléphone',
+                    'hidden' => true
                 ]
             ])
             ->add('enfant_1' , TextType::class, [
@@ -65,14 +71,16 @@ class RegistrationFormType extends AbstractType
                 'label' => ' ',
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'Enfant 2'
+                    'placeholder' => 'Enfant 2',
+                    'hidden' => true
                 ]
             ])
             ->add('enfant_3' , TextType::class, [
                 'label' => ' ',
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'Enfant 3'
+                    'placeholder' => 'Enfant 3',
+                    'hidden' => true
                 ]
             ])
             ->add('email' , TextType::class, [

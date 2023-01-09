@@ -8,7 +8,7 @@
 		<div class="container text-center justify-content-around">
 			<div class="row">
 				<div class="col-12">		
-					<h1 class="bienvenue">Bienvenue {{ app.user.nom | capitalize}} {{ app.user.prenom | capitalize }}</h1>
+					<h1 class="bienvenue">Bienvenue {{ app.user.enfant1 | capitalize}} <h1>
 					{% for info in info %}
 						<p class="red" id="clignotement" style="visibility:visible;">{{ info.annonces }}</p>
 					{% endfor %}

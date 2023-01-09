@@ -19,7 +19,6 @@
 						<img src="{{ asset('uploads/groupe/' ~ photo.photo) }}" class="card-img-top" alt="photo">
 						<div class="card-body">
 							<h4>{{ photo.titre | capitalize }}</h4>
-							<p class="card-text">{{ photo.description | capitalize }}</p>
 							<p>Photo prise le
 								{{ photo.createdat | date('d/m/Y') }}
 							</p>

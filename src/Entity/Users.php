@@ -68,6 +68,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\OneToMany(mappedBy: 'info', targetEntity: Info::class)]
     private Collection $infos;
+    
 
     #[ORM\OneToMany(mappedBy: 'parent', targetEntity: PhotoGroupe::class)]
     private Collection $photoGroupes;
@@ -81,7 +82,10 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         $this->enfant_3 = '';
         $this->validPhotoGroupe = false;
         $this->infos = new ArrayCollection();
-        $this->photoGroupes = new ArrayCollection();   
+        $this->photoGroupes = new ArrayCollection(); 
+        $this->prenom = 'null';
+        $this->zipcode = '45000';
+        $this->telephone = '0909090909';
     }
 
     public function getId(): ?int

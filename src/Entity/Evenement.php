@@ -56,10 +56,7 @@ class Evenement
     public function __toString()
     {
         return $this->nom;
-        return $this->description;
-        
-        return $this->annonce;
-        
+        return $this->description;        
     }
 
     public function getDate(): ?\DateTime

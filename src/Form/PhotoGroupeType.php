@@ -23,8 +23,10 @@ class PhotoGroupeType extends AbstractType
             ])
             ->add('description' , TextType::class, [
                 'label' => ' ',
+                'required' => false,
                 'attr' => [
-                    'placeholder' => 'Description de la photo'
+                    'placeholder' => 'Description de la photo',
+                    'hidden' => true
                 ]
             ])
             ->add('created_at' , DateType::class, [

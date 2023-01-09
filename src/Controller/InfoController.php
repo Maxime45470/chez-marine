@@ -6,9 +6,11 @@ use App\Entity\Info;
 use App\Form\InfoType;
 use App\Repository\InfoRepository;
 use App\Repository\UsersRepository;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 #[Route('/info')]
@@ -25,16 +27,25 @@ class InfoController extends AbstractController
     
 
     #[Route('/new', name: 'app_info_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, InfoRepository $infoRepository): Response
+    public function new(Request $request, InfoRepository $infoRepository,MailerInterface $mailer): Response
     {
         $info = new Info();
         $form = $this->createForm(InfoType::class, $info);
         $form->handleRequest($request);
+    
 
         if ($form->isSubmitted() && $form->isValid()) {
             $infoRepository->add($info, true);
-
-            return $this->redirectToRoute('app_info_index', [], Response::HTTP_SEE_OTHER);
+            $email = (new TemplatedEmail())
+            ->from('marine.henry718@orange.fr')
+            ->to($form->get('info')->getData())
+            ->subject('Bienvenue sur le site de Marine Henry')
+            ->htmlTemplate('email/info.html.twig')
+            ->context([
+                ])
+                ;
+                $mailer->send($email);
+                return $this->redirectToRoute('app_info_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('info/new.html.twig', [
